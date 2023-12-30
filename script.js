@@ -103,6 +103,10 @@ function triggerFireworks() {
             particles.push({ x, y, speed, angle, color, radius: 5 });
         }
     }
+    function happy(){
+        
+    }
+
 
     function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
