@@ -6,6 +6,8 @@ let isAlive = true
 let message = ""
 let sum = firstCard + secondCard
 
+let cardArray = [firstCard, secondCard]
+
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
@@ -26,7 +28,7 @@ function renderGame(){
         isAlive=false
     }
     
-    cardsEl.textContent = "Cards: " + firstCard + " "+ secondCard
+    cardsEl.textContent = "Cards: " + cardArray
     sumEl.textContent = "Sum :" + sum
     messageEl.textContent = message
 
@@ -35,6 +37,7 @@ function renderGame(){
 function newCard(){
     let newCard = 2
     sum += newCard
+    cardArray.push(newCard)
     renderGame()
 }
 
