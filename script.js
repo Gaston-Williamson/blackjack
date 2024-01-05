@@ -16,13 +16,13 @@ let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 let playerEl = document.getElementById("player-el")
 
-playerEl.textContent = player.name + ": " + player.chips
+playerEl.textContent = player.name + ": $" + player.chips
 
 function startGame(){
     isAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
-    cardArray.push(firstCard, secondCard)
+    cardArray = [firstCard, secondCard]
     sum = firstCard+secondCard
 
     renderGame()
@@ -41,6 +41,13 @@ function getRandomCard(){
 
 function renderGame(){
 
+    cardsEl.textContent = "Cards: " 
+    for (let i=0; i<cardArray.length; i++){
+        cardsEl.textContent += cardArray[i] + " "
+    }
+
+    sumEl.textContent = "Sum :" + sum
+
     if (sum <= 20){
         message = "Do you want to draw a new card?"
     }else if(sum===21){
@@ -50,13 +57,12 @@ function renderGame(){
         message = "You lose"
         isAlive=false
     }
+   
     
-    cardsEl.textContent = "Cards: " 
-    for (let i=0; i<cardArray.length; i++){
-        cardsEl.textContent += cardArray[i] + " "
+    
 
-    }
-    sumEl.textContent = "Sum :" + sum
+    
+    
     messageEl.textContent = message
 
 }
